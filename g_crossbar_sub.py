@@ -4,6 +4,7 @@ from autobahn.asyncio.wamp import ApplicationSession
 import asyncio 
 
 comp = Component(
+    # transports="wss://vanpy-wamp.herokuapp.com/ws",
     transports="ws://localhost:8080/ws",
     realm="realm1",
 )
@@ -11,14 +12,11 @@ comp = Component(
 @comp.on_join
 async def joined(session, details):
     print("session ready")
-    asyncio.create_task(update(session))
 
-async def update(session):
-    while True:
-        session.publish('publish', 1)
-        print('test')
-        await asyncio.sleep(1)
-
+@comp.subscribe('bot.update')
+async def handle(data):
+    print(data)
+    
 
 if __name__ == "__main__":
     run([comp])
