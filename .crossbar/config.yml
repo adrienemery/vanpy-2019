@@ -9,7 +9,7 @@ workers:
   realms:
   - name: realm1
     roles:
-    - name: default
+    - name: anonymous
       permissions:
       - uri: "*"
         allow:
@@ -18,6 +18,11 @@ workers:
           publish: true
           subscribe: true
   transports:
+  - type: websocket
+    endpoint: 
+      type: tcp
+      port: 9000
+
   - type: web
     endpoint:
       type: tcp
