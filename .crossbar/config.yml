@@ -22,7 +22,7 @@ workers:
   - type: web
     endpoint:
       type: tcp
-      port: "$PORT"  # Use env var for heroku deployments
+      port: $PORT  # Use env var for heroku deployments
     paths:
       ws:
         type: websocket
