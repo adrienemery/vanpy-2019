@@ -9,7 +9,7 @@ workers:
   realms:
   - name: realm1
     roles:
-    - name: anonymous
+    - name: default
       permissions:
       - uri: "*"
         allow:
@@ -18,11 +18,10 @@ workers:
           publish: true
           subscribe: true
   transports:
-
   - type: web
     endpoint:
       type: tcp
-      port: $PORT  # Use env var for heroku deployments
+      port: "$PORT"  # Use env var for heroku deployments
     paths:
       ws:
         type: websocket
