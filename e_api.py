@@ -1,18 +1,16 @@
 from flask import Flask
-from pyserial import LED
+from c_serial_thread import bot
 
 app = Flask(__name__)
 
-led = LED()
 
-@app.route("/on")
-def on():
-    led.on()
-    return "ON"
+@app.route("/distance")
+def distance():
+    return str(bot.distance)
 
 
-@app.route("/off")
-def off():
-    led.off()
-    return "OFF"
+@app.route("/move/<pos>")
+def move(pos):
+    bot.move(pos)
+    return str(pos)
 

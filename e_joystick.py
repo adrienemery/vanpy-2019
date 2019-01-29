@@ -2,7 +2,7 @@ from pygame import joystick
 import pygame
 import time
 
-from pyserial import servo, led
+from c_serial_thread import bot
 
 joystick.init()
 pygame.display.init()
@@ -28,17 +28,8 @@ while True:
     servo_pos *= 90
     servo_pos += 90
     if servo_pos != last_servo_pos:
-        servo.move(int(servo_pos))
+        bot.move(int(servo_pos))
     last_servo_pos = servo_pos
-
-    # update led state
-    led_state = joy.get_button(13)
-    if led_state != last_led_state:
-        if led_state :
-            led.on()
-        else:
-            led.off()
-    last_led_state = led_state
 
     time.sleep(0.05)
 

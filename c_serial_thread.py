@@ -21,4 +21,6 @@ class Bot:
                 self.distance = int(read_data.strip().decode())
             except ValueError:
                 pass
-            read_buffer.put(self.distance)
+
+
+bot = Bot()
