@@ -5,8 +5,7 @@ from a_serial_read import get_port_name
 
 class Bot:
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self):
         self.port = serial.Serial(get_port_name(), baudrate=9600)
         self.distance = None
         threading.Thread(target=self.read_worker).start()
