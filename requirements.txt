@@ -1,1 +1,1 @@
-crossbar==19.1.2
+crossbar==18.7.2

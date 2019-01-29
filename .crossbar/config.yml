@@ -18,10 +18,6 @@ workers:
           publish: true
           subscribe: true
   transports:
-  - type: websocket
-    endpoint: 
-      type: tcp
-      port: 9000
 
   - type: web
     endpoint:
