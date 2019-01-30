@@ -1,6 +1,6 @@
 import serial
 import time
-from a_serial_read import get_port_name
+from utils import get_port_name
 
 
 if __name__ == '__main__':

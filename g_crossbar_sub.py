@@ -20,6 +20,8 @@ async def joined(session, details):
 @comp.subscribe('bot.update', options=SubscribeOptions(details=True))
 async def handle(data, details):
     print(data)
+    # pos = int(data.get('distance')) * 2
+    # details.subscription.session.call('bot.move', pos)
 
     
 if __name__ == "__main__":

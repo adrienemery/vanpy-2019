@@ -20,7 +20,7 @@ async def joined(session, details):
 async def update(session):
     while True:
         session.publish('bot.update', {'distance': bot.distance})
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.1)
 
 
 @comp.register('bot.move')
