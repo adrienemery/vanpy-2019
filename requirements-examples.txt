@@ -1,0 +1,6 @@
+pyserial
+pyqt
+pygame
+flask
+autobahn
+crossbar
