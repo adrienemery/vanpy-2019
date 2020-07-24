@@ -1,5 +1,5 @@
 require 'sinatra'
-require './c_serial_thread'
+require './c_bot'
 
 bot = Bot.new
 

@@ -1,14 +1,16 @@
 require 'rubyserial'
 
-serialport = Serial.new '/dev/ttyACM0'
+serialport = Serial.new '/dev/tty.usbmodem141101'
 
-buffer = []
-
+buffer = ''
 
 loop do
-    buffer += serialport.getbyte
-    data = buffer.pack('c*')
-    if data.match(/\\r\\n/)
+    next_char = serialport.getbyte&.chr
+    buffer += next_char if next_char
+    match = buffer.match(/(\d+)\r\n/)
+    if match
+        data = match[1]
         p data
-        buffer = []
+        buffer = ''
+    end
 end
